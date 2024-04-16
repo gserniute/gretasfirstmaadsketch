@@ -1,0 +1,244 @@
+
+
+<style>
+  :root{
+    --bg-color: #FCC606;
+    --eye-color: #FFFFFF;
+    --eye-bordercolor: #4E0707;
+    --eyelid-color: #000000;
+    --eyecolor: #000000;
+    --mouth-color: #000000;
+    --mouth-bordercolor: #D21404;
+    --teeth-color: #FFFFFF;
+    --eyebrowcolor: #4E0707;
+  }
+
+
+  Body{
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    animation-name: change-color;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  /*Creating the left eye*/
+  .lefteye1 {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    width: 150px;
+    height: 150px;
+    border: 20px solid var(--eye-bordercolor);
+    border-top-left-radius: 150%;
+    border-bottom-left-radius: 300%;
+    border-top-right-radius: 300%;
+    border-bottom-right-radius: 79%;
+    background-color: var(--eye-color);
+  }
+  /*Creating the left eye's pupil*/
+  .lefteye1::before{
+    content:"";
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    z-index: 0;
+    width: 1px;
+    height: 1px;
+    border: 50px solid var(--eyecolor);
+    border-radius: 50%;
+    /*animating the left pupil*/
+    animation-name: move2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+  }
+  
+  /*Creating the left eye's eyelid*/
+  .lefteye1::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    z-index: 2;
+    width: 150px;
+    height: 130px;
+    border: 16px solid var(--eyelid-color);
+    border-top-left-radius: 150%;
+    border-bottom-left-radius: 600%;
+    border-top-right-radius: 400%;
+    border-bottom-right-radius: 65%;
+  }
+  
+  
+  /*RIGHT EYE*/
+  
+  /*Creating the right eye, by mirroring the left one*/
+  .righteye1 {
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    width: 150px;
+    height: 150px;
+    border: 20px solid var(--eye-bordercolor);
+    border-top-right-radius: 150%;
+    border-bottom-right-radius: 300%;
+    border-top-left-radius: 300%;
+    border-bottom-left-radius: 79%;
+    background-color: var(--eye-color);
+  }
+  /*Creating the right eye's PUPIL, by mirroring the left one*/
+    .righteye1::before{
+    content:"";
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    z-index: 2;
+    width: 1px;
+    height: 1px;
+    border: 50px solid var(--eyecolor);
+    border-radius: 50%;
+      /*Animating the right pupil*/
+    animation-name: move;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+
+  }
+  /*Creating the right EYELID, by mirroring the left one (just swapping the rights and lefts in the borders) */
+  .righteye1::after{
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    z-index: 2;
+    width: 150px;
+    height: 130px;
+    border: 16px solid var(--eyelid-color);
+    border-top-right-radius: 150%;
+    border-bottom-right-radius: 600%;
+    border-top-left-radius: 400%;
+    border-bottom-left-radius: 65%;
+  }
+  
+  /*not sure if this goes before or after style seperator*/
+  
+  /*animation for the right eye*/
+  @keyframes move {
+    from {left: 0%;}
+    to {left: 15%;}
+  }
+  /*animation for the left eye*/
+  @keyframes move2 {
+    from {left:20%;}
+    to {left: 40%;}
+  }
+  
+  /*animation for the background's changing color*/
+  @keyframes change-color 
+  {
+    from {background-color: yellow;}
+    to {background-color: purple;}
+  }
+		                
+  
+/*Creating a mouth*/
+  .mouth{
+    position: absolute;
+    top: 380px;
+    left: 280px;
+    width: 350px;
+    height: 100px;
+    border: 20px solid var(--mouth-bordercolor);
+    border-top-left-radius: 70%;
+    border-bottom-left-radius: 1000%;
+    border-top-right-radius: 70%;
+    border-bottom-right-radius: 1000%;
+    background-color: var(--mouth-color);
+  }
+  /*Creating teeth*/
+  
+  /*left tooth*/
+  .mouth::before{
+    content:"";
+    position: absolute;
+    left: 60px;
+    top: 0px;
+    z-index: 2;
+    width: 35px;
+    height: 0px;
+    border: 25px solid var(--teeth-color);
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+  }
+  
+  /*right tooth*/
+  .mouth::after{
+    content:"";
+    position: absolute;
+    right: 55px;
+    top: 0px;
+    z-index: 2;
+    width: 35px;
+    height: 0px;
+    border: 25px solid var(--teeth-color);
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+  }
+  
+  /*LEFT EYEBROW*/
+  .lefteyebrow{
+    position: absolute;
+    background-color: var(--eyebrowcolor);
+    top: 40px;
+    left: 200px;
+    width: 100px;
+    height: 10px;
+    border: 15px solid var(--eyebrowcolor);
+    border-top-left-radius: 500%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 500%;
+    border-bottom-right-radius: 10%
+  }
+  
+  /*Right eyebrow*/
+  .righteyebrow{
+    position: absolute;
+    background-color: var(--eyebrowcolor);
+    top: 40px;
+    right: 200px;
+    width: 100px;
+    height: 10px;
+    border: 15px solid var(--eyebrowcolor);
+    border-top-left-radius: 500%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 500%;
+    border-bottom-right-radius: 10%
+  }
+</style>
+
+<div class="lefteye1"></div>
+
+<div class="righteye1"></div>
+
+<div class="mouth"></div>
+
+<div class="lefteyebrow"></div>
+<div class="righteyebrow"></div>
+
+
+<h1> 
+  <p style = "margin-top: 600px;"
+  </p>
+My name is Fred!
+</h1>
+  
+ 
